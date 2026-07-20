@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <style>
+
+/* =========================
+   GLOBAL RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: #050806;
+    color: #f5f5f5;
+    font-family: Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   HEADER / HERO SECTION
+========================= */
+
+header {
+    min-height: 75vh;
+    padding: 100px 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(159, 175, 8, 0.25),
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            #0e2805,
+            #071004,
+            #050806
+        );
+
+    border-bottom: 1px solid rgba(159, 175, 8, 0.3);
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Decorative glow */
+
+header::before {
+    content: "";
+
+    position: absolute;
+    width: 400px;
+    height: 400px;
+
+    background: rgba(159, 175, 8, 0.08);
+
+    filter: blur(100px);
+    border-radius: 50%;
+
+    top: -200px;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+
+/* =========================
+   MAIN HEADING
+========================= */
+
+h1 {
+    position: relative;
+
+    font-size: clamp(42px, 8vw, 90px);
+    letter-spacing: -3px;
+
+    margin-bottom: 20px;
+
+    background: linear-gradient(
+        90deg,
+        #d8e85a,
+        #a9c33b,
+        #ffffff,
+        #d8e85a
+    );
+
+    background-size: 300% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    animation: gradientMove 5s linear infinite;
+
+    text-shadow:
+        0 0 30px rgba(159, 175, 8, 0.25);
+}
+
+
+@keyframes gradientMove {
+
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 300% center;
+    }
+
+}
+
+
+/* =========================
+   SUBTITLE
+========================= */
+
+header p {
+    max-width: 700px;
+
+    color: #cbd59b;
+
+    font-size: 18px;
+    line-height: 1.7;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   MAIN SECTION
+========================= */
+
+main {
+    min-height: 100vh;
+
+    padding: 90px 8%;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(27, 66, 12, 0.5),
+            transparent 50%
+        ),
+        #0e2805;
+}
+
+
+/* =========================
+   SECTION HEADINGS
+========================= */
+
+h2 {
+    text-align: center;
+
+    color: #d8e85a;
+
+    font-size: clamp(28px, 5vw, 50px);
+
+    margin-bottom: 50px;
+
+    text-shadow:
+        0 0 20px rgba(159, 175, 8, 0.3);
+}
+
+
+/* =========================
+   PROJECT CONTAINER
+========================= */
+
+.container {
+
+    max-width: 1100px;
+
+    margin: 40px auto;
+
+    padding: 40px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.07),
+            rgba(0, 0, 0, 0.55)
+        );
+
+    color: white;
+
+    border: 1px solid rgba(159, 175, 8, 0.25);
+
+    border-radius: 24px;
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        inset 0 0 30px rgba(159, 175, 8, 0.03);
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+
+}
+
+
+/* Project card hover */
+
+.container:hover {
+
+    transform: translateY(-10px);
+
+    border-color: rgba(216, 232, 90, 0.7);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.7),
+        0 0 35px rgba(159, 175, 8, 0.15);
+
+}
+
+
+/* =========================
+   PROJECT BUTTONS
+========================= */
+
+#github,
+#vercel,
+#railway {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin: 10px 8px;
+
+    padding: 13px 22px;
+
+    background: rgba(14, 40, 5, 0.7);
+
+    color: white;
+
+    font-family: Verdana, sans-serif;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    border: 1px solid rgba(159, 175, 8, 0.5);
+
+    border-radius: 50px;
+
+    cursor: pointer;
+
+    transition: all 0.35s ease;
+
+}
+
+
+#github:hover,
+#vercel:hover,
+#railway:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            #d8e85a,
+            #3d650e
+        );
+
+    color: #050806;
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 0 25px rgba(159, 175, 8, 0.5);
+
+}
+
+
+/* =========================
+   MAIN CTA BUTTON
+========================= */
+
+button {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    padding: 15px 28px;
+
+    min-width: 190px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d8e85a,
+            #7b9415
+        );
+
+    color: #071004;
+
+    border: none;
+
+    border-radius: 50px;
+
+    font-family: Verdana, sans-serif;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 0 rgba(159, 175, 8, 0);
+
+    transition:
+
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+
+}
+
+
+/* Button hover */
+
+button:hover {
+
+    transform: translateY(-5px) scale(1.03);
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #d8e85a
+        );
+
+    box-shadow:
+        0 10px 35px rgba(159, 175, 8, 0.45);
+
+}
+
+
+/* Button click */
+
+button:active {
+
+    transform: translateY(-1px) scale(0.98);
+
+}
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 600px) {
+
+    header {
+        min-height: 65vh;
+        padding: 70px 20px;
+    }
+
+    .container {
+        padding: 25px;
+        margin: 25px auto;
+    }
+
+    #github,
+    #vercel,
+    #railway {
+
+        width: 100%;
+        margin: 8px 0;
+
+    }
+
+    button {
+        width: 100%;
+    }
+
+}
+
+</style>
+</head>
+<body>
+    <header>
+        <h1>From “what if?” to “it works.”</h1>
+        <p>A journey from imagination to implementation. I'm Akshita, a student developer from Mumbai who turns ideas into functional, engaging digital experiences. I build modern websites and web applications while exploring the world of AI and software engineering.</p>
+    </header>
+    <main>
+            <div class = "container">
+                <h2>Here are my projects.</h2>
+            <div section = "github">
+            <h2>GitHub Projects</h2>
+            <p>From websites built for small businesses to projects brought to life through Vercel and GitHub, this is where my ideas become real.</p>
+                <button onClick= "window.location.href='https://akshitasingh7547.github.io/Bloom-and-Brew/'">Bloom and Brew</button>
+                <button onClick= "window.location.href='https://akshitasingh7547.github.io/kawaii_for_everyone/'">Kawaii</button>
+            </div>
+             <div section = "vercel">
+            <h2>Vercel</h2>
+            <p>Here I uploaded my frontend and also deployed it.</p>
+                <button onClick= "window.location.href='study-hub-akshita76.vercel.app'">Project 1</button>
+            </div>
+             <div section = "railway">
+            <h2>Railway</h2>
+            <p>Here I uploaded my backend and also deployed it.</p>
+                                <button onClick= "window.location.href='https://railway.com/project/7988536d-75d9-4c40-9615-075c264d60b3'">Project 1</button>
+            </div>
+            </div>
+            <div class=" aboutMe">
+                <h2>More about me.</h2>
+                <p>I am an ambitious and curious learner who recently completed my ICSE Class 10 education from Jankidevi Public School, Mumbai, scoring 85.8%. Beyond academics, I have earned medals in sports and enjoy playing basketball, badminton, football, cricket, and other sports. I am also passionate about reading, digital editing, artificial intelligence, finance, and exploring new ideas. I believe in constantly learning, experimenting, and challenging myself to grow—not only as a student and future AI engineer, but also as a creative and well-rounded individual. I have uploaded some books on Bribooks.</p>
+            </div>
+    </main>
+    <footer>
+        <div class = "container">
+            <h2>Contact Me</h2>
+            <p>Feel free to reach out to me for collaborations, inquiries, or just to say hello!</p>
+            <button onClick= "window.location.href='https://www.linkedin.com/in/akshita-singh-743446340/'">LinkedIn</button>
+            <button onClick= "window.location.href='https://x.com/AkshitaSin16838'">Twitter</button>
+        </div>
+    </footer>
+</body>
+</html>

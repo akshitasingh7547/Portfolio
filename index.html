@@ -9,7 +9,7 @@
   <meta property="og:title" content="Akshita Singh | Student Developer" />
   <meta property="og:description" content="From 'what if?' to 'it works.' A portfolio for Akshita Singh: student developer, creator, author, and learner from Mumbai." />
   <meta property="og:type" content="website" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23fff5cc'/%3E%3Crect x='7' y='7' width='50' height='50' fill='%23ffdc7a' opacity='0.12'/%3E%3Ctext x='32' y='38' font-size='20' font-family='Arial, Helvetica, sans-serif' text-anchor='middle' fill='%23061611'%3EAS%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23fff5cc'/%3E%3Crect x='7' y='7' width='50' height='50' fill='none' stroke='%23062018' stroke-width='2'/%3E%3Ctext x='32' y='40' font-size='24' font-weight='bold' text-anchor='middle' fill='%23062018'%3EAS%3C/text%3E%3C/svg%3E" />
   <style>
     :root{
       --ink:#062018;            /* dark ink */
@@ -28,15 +28,213 @@
 
     html,body{height:100%;margin:0;background:var(--deep);color:var(--ink);-webkit-font-smoothing:antialiased}
     .shell{max-width:980px;margin:0 auto;padding:28px}
-    header.nav{background:transparent;padding:18px 0}
+    header.nav{background:transparent;padding:18px 0;position:relative;z-index:10}
     .brand{display:flex;gap:12px;align-items:center;text-decoration:none;color:var(--ink);font-weight:600}
-    .mark{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:linear-gradient(180deg,var(--gold2),var(--gold));color:var(--deep);font-weight:700}
+    .mark{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:linear-gradient(180deg,var(--gold2),var(--gold));color:var(--deep);font-weight:700;font-size:13px}
 
-    .hero{padding:40px 0}
-    .eyebrow{color:var(--muted);font-size:14px}
-    h1{font-size:34px;margin:8px 0 12px}
-    .hero-copy{color:var(--muted);max-width:70%}
+    /* ===== HERO SECTION WITH IMAGE ===== */
+    .hero-image-section {
+      position: relative;
+      overflow: hidden;
+      padding: 60px 0;
+      background: linear-gradient(135deg, #fff5cc 0%, #fff9e6 100%);
+    }
 
+    .hero-image-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      perspective: 1200px;
+    }
+
+    /* 3D Image Frame */
+    .image-frame-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Rotating background geometric shapes */
+    .frame-bg-shapes {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .shape {
+      position: absolute;
+      opacity: 0.1;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .shape-1 {
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(135deg, var(--gold), var(--teal));
+      border-radius: 20% 80% 80% 20% / 20% 20% 80% 80%;
+      top: -50px;
+      left: -50px;
+      animation-delay: 0s;
+    }
+
+    .shape-2 {
+      width: 250px;
+      height: 250px;
+      background: linear-gradient(45deg, var(--teal), var(--gold2));
+      border-radius: 80% 20% 20% 80% / 80% 80% 20% 20%;
+      bottom: -40px;
+      right: -40px;
+      animation-delay: 2s;
+    }
+
+    .shape-3 {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(180deg, var(--gold2), var(--teal));
+      clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+      top: 50%;
+      right: -30px;
+      transform: translateY(-50%);
+      animation-delay: 1s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    /* 3D Image Box */
+    .image-box {
+      position: relative;
+      z-index: 2;
+      width: 90%;
+      max-width: 420px;
+      aspect-ratio: 1;
+      border-radius: 20px;
+      box-shadow: 
+        0 20px 60px rgba(6, 32, 24, 0.15),
+        0 0 0 1px rgba(217, 179, 95, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(217, 179, 95, 0.05));
+      transform: translateZ(20px);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .image-box:hover {
+      transform: translateY(-10px) rotateX(5deg) rotateY(-5deg) translateZ(40px);
+      box-shadow: 
+        0 40px 80px rgba(6, 32, 24, 0.2),
+        0 0 0 1px rgba(57, 214, 189, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+
+    .image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Light reflection effect */
+    .image-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%);
+      z-index: 3;
+      pointer-events: none;
+      border-radius: 20px;
+    }
+
+    /* Glowing border */
+    .glow-border {
+      position: absolute;
+      inset: -3px;
+      border-radius: 20px;
+      padding: 3px;
+      background: linear-gradient(135deg, var(--gold2), var(--teal), var(--gold));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0.5;
+      animation: glow-pulse 3s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes glow-pulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.7; }
+    }
+
+    /* Hero text content */
+    .hero-text-content {
+      text-align: center;
+      z-index: 3;
+      max-width: 600px;
+    }
+
+    .hero-text-content .eyebrow {
+      color: var(--muted);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    .hero-text-content h1 {
+      font-size: 42px;
+      margin: 0 0 20px;
+      background: linear-gradient(135deg, var(--ink), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+    }
+
+    .hero-text-content p {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Divider line */
+    .divider-line {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 30px auto;
+      border-radius: 2px;
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--muted);
+      font-size: 12px;
+      animation: bounce 2s ease-in-out infinite;
+      z-index: 5;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-8px); }
+    }
+
+    /* ===== REST OF PORTFOLIO ===== */
     section{margin-top:28px}
     .section-head h2{margin:0 0 6px}
     .section-head p{color:var(--muted);margin:0 0 18px}
@@ -59,30 +257,61 @@
     footer{padding:28px 0;color:var(--muted)}
 
     /* Responsive tweaks */
-    @media (max-width:720px){.hero-copy{max-width:100%}h1{font-size:28px}}
+    @media (max-width:720px){
+      .hero-text-content{max-width:100%}
+      .hero-text-content h1{font-size:32px}
+      .hero-text-content p{font-size:16px}
+      .image-frame-wrapper{max-width:350px;height:350px}
+      .hero-image-section{padding:40px 0}
+      .shape-1{width:200px;height:200px}
+      .shape-2{width:150px;height:150px}
+      .shape-3{width:120px;height:120px}
+    }
   </style>
 </head>
 <body>
-  <header class="nav"><div class="shell nav-inner"><a class="brand" href="#top" aria-label="Akshita Singh home"><span class="mark">AS</span><span>Akshita Singh</span></a><nav class="nav-links" aria-hidden="true"></nav></div></header>
+  <header class="nav"><div class="shell nav-inner"><a class="brand" href="#top" aria-label="Akshita Singh home"><span class="mark">AS</span><span>Akshita Singh</span></a></div></header>
+  
+  <!-- NEW HERO IMAGE SECTION -->
+  <section class="hero-image-section">
+    <div class="shell hero-image-container">
+      <div class="image-frame-wrapper">
+        <div class="frame-bg-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+        </div>
+        <div class="glow-border"></div>
+        <div class="image-box">
+          <img src="meow" alt="Akshita Singh">
+        </div>
+      </div>
+      <div class="hero-text-content">
+        <div class="eyebrow">Student developer from Mumbai</div>
+        <h1>From 'what if?' to 'it works.'</h1>
+        <div class="divider-line"></div>
+        <p>I am Akshita Singh: student developer, creator, author, and learner. This portfolio captures a growing range of work across artificial intelligence, fintech, creative experiments, and software engineering—built with curiosity and discipline.</p>
+      </div>
+    </div>
+    <div class="scroll-indicator">↓ Scroll to explore</div>
+  </section>
+
   <main id="top">
-    <section class="hero"><div class="shell hero-grid"><div><div class="eyebrow">Student developer from Mumbai</div><h1>From 'what if?' to 'it works.'</h1><p class="hero-copy">I am Akshita Singh: student developer, maker, and learner exploring playful interfaces, helpful tools, and creative web experiences.</p></div></div></section>
     <section id="projects"><div class="shell"><div class="section-head"><h2>Projects</h2><p>A growing showcase of apps and ideas, from playful digital experiences to student-focused productivity tools.</p></div>
 
       <!-- Make project cards links. Bloom & Brew and Kawaii for Everyone open the respective repositories in a new tab -->
-      <article class="project"><a class="project-link" href="https://akshitasingh7547.github.io/Bloom-and-Brew/" target="_blank" rel="noopener noreferrer"><div class="project-top"><h3>Bloom &amp; Brew</h3><span class="status">Live concept</span></div><p>A warm digital experience blending cafe culture and floral aesthetics — click to open Bloom &amp; Brew.</p></a></article>
+      <article class="project"><a class="project-link" href="https://akshitasingh7547.github.io/Bloom-and-Brew/" target="_blank" rel="noopener noreferrer"><div class="project-top"><h3>Bloom &amp; Brew</h3><span class="status">Web app</span></div><p>A digital sanctuary for plant and tea enthusiasts. Bloom &amp; Brew is a place to explore plant care tips, brewing techniques, wellness content, and community vibes.</p></a></article>
 
-      <article class="project"><a class="project-link" href=" https://akshitasingh7547.github.io/kawaii_for_everyone/" target="_blank" rel="noopener noreferrer"><div class="project-top"><h3>Kawaii for Everyone</h3><span class="status">Creative build</span></div><p>A cheerful web project inspired by cute visual culture — click to open Kawaii for Everyone.</p></a></article>
+      <article class="project"><a class="project-link" href=" https://akshitasingh7547.github.io/kawaii_for_everyone/" target="_blank" rel="noopener noreferrer"><div class="project-top"><h3>Kawaii for Everyone</h3><span class="status">Web design</span></div><p>A visual exploration of kawaii aesthetics and cute design philosophy. Built with playful animations and a joyful color palette.</p></a></article>
 
-      <article class="project"><div class="project-top"><h3>Study Hub</h3><span class="status">Student tool</span></div><p>A productivity space made for learners, bringing study resources, organization, and focus tools together.</p></article>
+      <article class="project"><div class="project-top"><h3>Study Hub</h3><span class="status">Student tool</span></div><p>A productivity space made for learners, bringing study resources, organization tools, and community features together in one place.</p></article>
      
     </div></section>
-    <section id="beyond"><div class="shell"><div class="section-head"><h2>Beyond Engineering</h2><p>The portfolio is not only about code. It is about the discipline, curiosity, and creative range that shape how I build.</p></div></div></section>
-    <section id="toolkit"><div class="shell"><div class="section-head"><h2>My Toolkit</h2><p>Technologies I use to move ideas from sketches and notes into working digital products.</p></div><div></div></div></section>
-    <section id="connect"><div class="shell"><div class="contact-band"><div><h2>Building the next version.</h2><p>I am learning in public, improving project by project, and shaping a portfolio that reflects growth.</p></div></div></div></section>
-  </main><footer><div class="shell footer-inner"><span>Akshita Singh</span><span>Student developer, creator, author, learner.</span></div></footer>
-  <script>
-    const c=document.getElementById('identityCanvas'),x=c?c.getContext('2d'):null;let w=0,h=0,t=0;const labels=['AI','JS','₹','CSS','React','Books','Git','Ideas'];function resize(){if(!c) return;const r=c.getBoundingClientRect();c.width=r.width*c.ownerDocument.defaultView.devicePixelRatio;c.height= r.height*c.ownerDocument.defaultView.devicePixelRatio;w=c.width;h=c.height;x.scale(c.ownerDocument.defaultView.devicePixelRatio,c.ownerDocument.defaultView.devicePixelRatio)}
-    if(c){window.addEventListener('resize',resize);resize();}
-  </script>
+    <section id="beyond"><div class="shell"><div class="section-head"><h2>Beyond Engineering</h2><p>The portfolio is not only about code. It is about the discipline, curiosity, and creative range that shape how I approach building.</p></div></div></section>
+    <section id="toolkit"><div class="shell"><div class="section-head"><h2>My Toolkit</h2><p>Technologies I use to move ideas from sketches and notes into working digital products.</p></div></div></section>
+    <section id="connect"><div class="shell"><div class="contact-band"><div><h2>Building the next version.</h2><p>I am learning in public, improving project by project, and shaping a portfolio that reflects growth, intent, and craft.</p></div></div></section>
+  </main>
+  
+  <footer><div class="shell footer-inner"><span>Akshita Singh</span><span>Student developer, creator, author, learner.</span></div></footer>
 </body>
 </html>

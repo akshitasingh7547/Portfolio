@@ -1,220 +1,218 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Akshita Singh | Web Designer & Developer</title>
-  <meta name="description" content="Akshita Singh — Web Designer & Developer creating modern, polished digital experiences." />
-  <meta name="theme-color" content="#0a0a0a" />
-  <meta property="og:title" content="Akshita Singh | Web Designer & Developer" />
-  <meta property="og:description" content="Modern websites, landing pages and digital experiences." />
-  <meta property="og:type" content="website" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0a0a'/%3E%3Ctext x='32' y='41' font-size='25' font-family='Arial' font-weight='700' text-anchor='middle' fill='%23ffffff'%3EAS%3C/text%3E%3C/svg%3E" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f6f0">
+  <meta name="description" content="Akshita Singh creates thoughtful, modern websites for businesses, brands and personal projects.">
+  <title>Akshita Singh — Web Development Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#080808;
-      --surface:#111111;
-      --surface-2:#171717;
-      --text:#f5f5f2;
-      --muted:#a1a1a1;
-      --line:#272727;
-      --accent:#d9ff55;
-      --max:1180px;
-      --radius:28px;
-      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    :root {
+      color-scheme: light;
+      --paper: #f8f6f0;
+      --ink: #25352e;
+      --muted: #707c72;
+      --line: #dedfd5;
+      --green: #496c58;
+      --rose: #e8c5b7;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", sans-serif;
+      font-family: var(--sans);
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
-    a{color:inherit}
-    .shell{width:min(var(--max),calc(100% - 40px));margin:auto}
-    .nav{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(8,8,8,.72);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.06)}
-    .nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between}
-    .brand{text-decoration:none;font-weight:800;letter-spacing:-.04em;font-size:18px}
-    .nav-links{display:flex;gap:28px;font-size:14px;color:var(--muted)}
-    .nav-links a{text-decoration:none;transition:.2s;color:inherit}
-    .nav-links a:hover{color:var(--text)}
-    .hero{min-height:100vh;padding:100px 0 56px;display:flex;align-items:center}
-    .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,520px);gap:70px;align-items:center}
-    .hero-copy{order:1}
-    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--accent);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;margin-bottom:22px}
-    .eyebrow:before{content:"";width:28px;height:1px;background:var(--accent)}
-    h1{font-size:clamp(56px,8vw,104px);line-height:.9;letter-spacing:-.075em;margin:0;max-width:800px}
-    h1 span{color:var(--muted);display:block}
-    .hero-copy p{font-size:18px;line-height:1.7;color:var(--muted);max-width:610px;margin:30px 0}
-    .actions{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:999px;text-decoration:none;font-weight:750;font-size:14px;border:1px solid var(--line);transition:transform .2s,background .2s,color .2s}
-    .btn:hover{transform:translateY(-3px)}
-    .btn.primary{background:var(--accent);color:#080808;border-color:var(--accent)}
-    .btn.secondary{background:transparent;color:var(--text)}
-    .hero-visual{order:2;display:flex;justify-content:center;position:relative}
-    .portrait-wrap{position:relative;width:min(100%,520px);border-radius:32px;overflow:hidden;background:var(--surface);border:1px solid var(--line);box-shadow:0 35px 100px rgba(0,0,0,.45)}
-    .portrait-wrap:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.35));pointer-events:none}
-    .portrait{display:block;width:100%;height:auto;max-height:78vh;object-fit:contain;object-position:center top}
-    .floating-label{position:absolute;z-index:2;left:20px;bottom:20px;padding:10px 14px;border:1px solid rgba(255,255,255,.14);background:rgba(8,8,8,.65);backdrop-filter:blur(12px);border-radius:999px;font-size:12px;color:#ddd}
-    section{padding:110px 0}
-    .section-kicker{color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px}
-    .section-title{font-size:clamp(38px,6vw,72px);letter-spacing:-.06em;line-height:.98;margin:0 0 18px}
-    .section-intro{color:var(--muted);font-size:17px;line-height:1.7;max-width:650px;margin:0}
-    .work-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:48px}
-    .project{position:relative;min-height:340px;padding:32px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(145deg,var(--surface-2),var(--surface));text-decoration:none;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;transition:transform .25s,border-color .25s}
-    .project:before{content:"";position:absolute;width:240px;height:240px;border-radius:50%;right:-90px;top:-90px;background:var(--accent);opacity:.08;transition:transform .35s}
-    .project:hover{transform:translateY(-8px);border-color:#444}
-    .project:hover:before{transform:scale(1.35)}
-    .project-number{position:absolute;top:28px;left:30px;color:#666;font-size:13px;font-weight:700}
-    .project-type{font-size:12px;text-transform:uppercase;letter-spacing:.13em;color:var(--accent);font-weight:800;margin-bottom:12px}
-    .project h3{font-size:32px;letter-spacing:-.045em;margin:0 0 10px}
-    .project p{color:var(--muted);line-height:1.65;margin:0;max-width:520px}
-    .project-arrow{position:absolute;right:28px;bottom:28px;width:42px;height:42px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;font-size:18px;transition:.2s}
-    .project:hover .project-arrow{background:var(--accent);color:#080808;border-color:var(--accent);transform:rotate(-45deg)}
-    .services{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:48px}
-    .service{padding:30px 22px;border-right:1px solid var(--line)}
-    .service:last-child{border-right:0}
-    .service h3{font-size:20px;margin:0 0 10px;letter-spacing:-.03em}
-    .service p{color:var(--muted);font-size:14px;line-height:1.65;margin:0}
-    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-    .about-copy{font-size:20px;line-height:1.7;color:#d3d3d3}
-    .about-copy strong{color:var(--text)}
-    .about-meta{display:grid;gap:18px}
-    .meta-card{padding:22px 0;border-bottom:1px solid var(--line)}
-    .meta-card:first-child{border-top:1px solid var(--line)}
-    .meta-label{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:#707070;margin-bottom:8px}
-    .meta-value{font-size:16px;color:var(--text)}
-    .tech-line{margin-top:24px;color:var(--muted);font-size:13px}.tech-line strong{color:var(--text);font-weight:700}
-    .contact{padding:90px 0 120px}
-    .contact-box{border:1px solid var(--line);border-radius:32px;padding:clamp(32px,7vw,80px);background:linear-gradient(135deg,#151515,#0d0d0d);text-align:center;position:relative;overflow:hidden}
-    .contact-box:before{content:"";position:absolute;width:320px;height:320px;border-radius:50%;background:var(--accent);opacity:.07;filter:blur(30px);left:50%;top:50%;transform:translate(-50%,-50%)}
-    .contact-box>*{position:relative}
-    .contact-box h2{font-size:clamp(42px,7vw,82px);letter-spacing:-.07em;line-height:.95;margin:0 auto 20px;max-width:800px}
-    .contact-box p{color:var(--muted);font-size:17px;margin:0 auto 30px}
-    footer{padding:28px 0 36px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;color:#777;font-size:13px}
-    footer a{text-decoration:none;color:#aaa}
-    @media(max-width:850px){
-      .nav-links{display:none}
-      .hero{padding-top:100px}
-      .hero-grid{grid-template-columns:1fr;gap:42px}
-      .hero-copy{order:2}.hero-visual{order:1}
-      .portrait-wrap{width:min(100%,560px)}
-      .work-grid,.about-grid{grid-template-columns:1fr}
-      .services{grid-template-columns:1fr 1fr}
-      .service:nth-child(2){border-right:0}.service:nth-child(-n+2){border-bottom:1px solid var(--line)}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+    body { margin: 0; color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    .wrap { width: min(1190px, calc(100% - 64px)); margin: 0 auto; }
+    .topbar { position: sticky; top: 0; z-index: 5; border-bottom: 1px solid rgb(37 53 46 / 10%); background: rgb(248 246 240 / 90%); backdrop-filter: blur(14px); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { text-decoration: none; font-size: 13px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
+    .brand span { color: var(--green); }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { color: #647168; text-decoration: none; font-size: 12px; transition: color .2s; }
+    .nav-links a:hover { color: var(--ink); }
+    .hero { min-height: 650px; display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 7%; padding-top: 48px; padding-bottom: 76px; }
+    .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; }
+    .eyebrow::before { width: 26px; height: 1px; background: currentColor; content: ""; }
+    h1 { max-width: 700px; margin: 23px 0 24px; font: 500 clamp(62px, 8vw, 106px)/.98 var(--serif); letter-spacing: -.065em; }
+    h1 em { color: var(--green); font-weight: 500; }
+    .hero-copy > p { max-width: 480px; color: var(--muted); font-size: 15px; line-height: 1.9; }
+    .hero-link { display: inline-flex; align-items: center; gap: 12px; margin-top: 18px; padding-bottom: 8px; border-bottom: 1px solid var(--green); color: var(--green); font-size: 12px; font-weight: 700; text-decoration: none; }
+    .hero-art { position: relative; min-height: 455px; display: flex; align-items: flex-end; justify-content: flex-end; }
+    .hero-photo { position: absolute; inset: 14px 20px 14px 52px; width: calc(100% - 72px); height: calc(100% - 28px); object-fit: cover; object-position: center; }
+    .hero-art::before { position: absolute; inset: 0 42px 42px 0; border: 1px solid #c8d3c5; content: ""; }
+    .hero-note { position: relative; z-index: 1; width: 180px; padding: 17px 19px; color: var(--ink); background: #e8eee5; font: italic 15px/1.5 var(--serif); }
+    .hero-note span { display: block; margin-top: 8px; color: var(--muted); font: 9px var(--sans); letter-spacing: .12em; text-transform: uppercase; }
+    .intro-band { padding: 27px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--green); font: italic 19px var(--serif); text-align: center; }
+    section.content { padding-top: 108px; padding-bottom: 108px; }
+    .section-heading { display: grid; grid-template-columns: .8fr 1.2fr; align-items: end; gap: 30px; margin-bottom: 46px; }
+    h2 { margin: 0; font: 500 clamp(42px, 6vw, 72px)/1.05 var(--serif); letter-spacing: -.045em; }
+    .section-heading p { max-width: 470px; margin: 0 0 5px; color: var(--muted); font-size: 13px; line-height: 1.8; }
+    .project-list { border-top: 1px solid var(--line); }
+    .project { display: grid; grid-template-columns: 48px minmax(0, .8fr) minmax(300px, 1fr); align-items: center; gap: 30px; padding: 28px 0; border-bottom: 1px solid var(--line); }
+    .project-number { align-self: start; padding-top: 7px; color: #89938a; font-size: 11px; letter-spacing: .1em; }
+    .project-info { padding: 20px 0; }
+    .project-type { color: var(--green); font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .project h3 { margin: 14px 0 10px; font: 500 clamp(26px, 3vw, 38px)/1.15 var(--serif); }
+    .project p { max-width: 330px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+    .project-image { position: relative; height: 270px; overflow: hidden; background: #e8e9df; }
+    .project-image img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+    .project:hover .project-image img { transform: scale(1.035); }
+    .project-image::after { position: absolute; inset: 0; border: 1px solid rgb(37 53 46 / 8%); content: ""; pointer-events: none; }
+    .project-visit { display: inline-flex; align-items: center; gap: 9px; margin-top: 20px; color: var(--ink); font-size: 11px; font-weight: 700; text-decoration: none; }
+    .project-visit span { color: var(--green); font-size: 16px; transition: transform .2s; }
+    .project-visit:hover span { transform: translate(3px,-3px); }
+    .approach { padding: 75px 0; background: #e9eee6; }
+    .approach-inner { display: grid; grid-template-columns: .85fr 1.15fr; gap: 10%; align-items: start; }
+    .approach h2 { max-width: 430px; margin-top: 18px; font-size: clamp(42px, 5vw, 60px); }
+    .approach-copy > p { max-width: 540px; margin: 5px 0 30px; color: #66746a; font-size: 14px; line-height: 1.9; }
+    .principles { display: grid; grid-template-columns: 1fr 1fr; gap: 0 30px; border-top: 1px solid #cad4c9; }
+    .principle { padding: 17px 0; border-bottom: 1px solid #cad4c9; }
+    .principle strong { display: block; font: 500 17px var(--serif); }
+    .principle span { display: block; margin-top: 5px; color: #758176; font-size: 10px; line-height: 1.6; }
+    .services { padding-top: 98px; padding-bottom: 98px; }
+    .services-top { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 35px; }
+    .services-top h2 { max-width: 520px; }
+    .services-top p { max-width: 340px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+    .service-lines { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+    .service { display: grid; grid-template-columns: 37px 1fr; gap: 12px; padding: 24px 20px 24px 0; border-bottom: 1px solid var(--line); }
+    .service:nth-child(odd) { border-right: 1px solid var(--line); }
+    .service:nth-child(even) { padding-left: 26px; }
+    .service-num { color: #8d978e; font-size: 10px; }
+    .service h3 { margin: 0 0 6px; font: 500 21px var(--serif); }
+    .service p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.7; }
+    .contact { position: relative; overflow: hidden; padding: 85px 0; background: #f0e2d9; }
+    .contact::after { position: absolute; top: -150px; right: -80px; width: 440px; height: 440px; border: 1px solid rgb(73 108 88 / 15%); border-radius: 50%; box-shadow: 0 0 0 38px rgb(73 108 88 / 4%), 0 0 0 78px rgb(73 108 88 / 3%); content: ""; }
+    .contact-inner { position: relative; z-index: 1; display: flex; align-items: end; justify-content: space-between; gap: 35px; }
+    .contact h2 { max-width: 650px; margin-top: 17px; font-size: clamp(49px, 7vw, 83px); }
+    .contact p { color: #6f766e; font-size: 13px; line-height: 1.8; }
+    .contact-link { display: inline-flex; align-items: center; gap: 12px; padding: 15px 19px; border: 1px solid var(--green); color: white; background: var(--green); font-size: 11px; font-weight: 700; text-decoration: none; white-space: nowrap; transition: background .2s, color .2s; }
+    .contact-link:hover { color: var(--green); background: transparent; }
+    footer { display: flex; justify-content: space-between; gap: 20px; padding-top: 25px; padding-bottom: 25px; color: #79837a; font-size: 10px; }
+    footer a { color: var(--green); text-decoration: none; }
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 38px, 600px); }
+      .nav { min-height: 66px; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 10px; }
+      .hero { min-height: auto; grid-template-columns: 1fr; gap: 40px; padding-top: 75px; padding-bottom: 58px; }
+      .hero-art { min-height: 360px; }
+      .hero-photo { inset-left: 35px; }
+      .section-heading, .approach-inner { grid-template-columns: 1fr; gap: 20px; }
+      section.content, .services { padding-top: 75px; padding-bottom: 75px; }
+      .project { grid-template-columns: 30px 1fr; gap: 14px; padding: 22px 0; }
+      .project-image { grid-column: 2; grid-row: 2; height: 245px; }
+      .project-info { padding: 0; }
+      .project h3 { margin-top: 10px; }
+      .approach { padding: 62px 0; }
+      .services-top { align-items: flex-start; flex-direction: column; }
+      .contact-inner { align-items: flex-start; flex-direction: column; }
+      .contact { padding: 65px 0; }
     }
-    @media(max-width:560px){
-      .shell{width:min(var(--max),calc(100% - 28px))}
-      section{padding:80px 0}
-      h1{font-size:clamp(52px,16vw,78px)}
-      .portrait-wrap{border-radius:22px}
-      .project{min-height:300px;padding:25px}
-      .services{grid-template-columns:1fr}
-      .service,.service:nth-child(2){border-right:0;border-bottom:1px solid var(--line)}
-      .service:last-child{border-bottom:0}
-      footer{flex-direction:column}
+    @media (max-width: 480px) {
+      .wrap { width: calc(100% - 30px); }
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: 9px; }
+      .brand { font-size: 11px; }
+      h1 { font-size: clamp(58px, 16vw, 76px); }
+      .hero-art { min-height: 300px; }
+      .hero-photo { inset: 12px 14px 12px 31px; width: calc(100% - 45px); height: calc(100% - 24px); }
+      .hero-art::before { inset: 0 25px 28px 0; }
+      .hero-note { width: 155px; padding: 13px; font-size: 13px; }
+      .intro-band { padding: 22px 15px; font-size: 16px; }
+      .project-image { height: 205px; }
+      .principles, .service-lines { grid-template-columns: 1fr; }
+      .service:nth-child(odd) { border-right: 0; }
+      .service:nth-child(even) { padding-left: 0; }
+      footer { flex-direction: column; }
     }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
   </style>
 </head>
 <body>
-  <header class="nav">
-    <div class="shell nav-inner">
-      <a class="brand" href="#home">AKSHITA SINGH</a>
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#work">Work</a>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
+  <header class="topbar">
+    <nav class="wrap nav" aria-label="Main navigation">
+      <a class="brand" href="#home">AKSHITA <span>SINGH</span></a>
+      <div class="nav-links"><a href="#work">Projects</a><a href="#services">What I do</a><a href="#approach">Approach</a><a href="#contact">Contact</a></div>
+    </nav>
   </header>
-
   <main id="home">
-    <section class="hero">
-      <div class="shell hero-grid">
-        <div class="hero-visual">
-          <div class="portrait-wrap">
-            <img class="portrait" src="meow" alt="Akshita Singh" />
-            <div class="floating-label">Web Design · Development</div>
+    <section class="wrap hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Web Development Portfolio</div>
+        <h1>Building digital <em>experiences.</em></h1>
+        <p>I create modern, visually engaging and functional websites designed to help businesses and individuals establish a strong online presence.</p>
+        <p>My approach combines thoughtful design, clean layouts and user-friendly experiences to transform ideas into websites.</p>
+        <a class="hero-link" href="#work">Explore selected projects <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-art" aria-label="A leafy houseplant in a sunlit room">
+        <img class="hero-photo" src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1200&q=85" alt="Sunlit green leaves, inspired by a botanical website project">
+        <div class="hero-note">A thoughtful idea, made real.<span>Design · Build · Refine</span></div>
+      </div>
+    </section>
+
+    <div class="intro-band">Thoughtful design, clear purpose, a little personality.</div>
+
+    <section class="wrap content" id="work">
+      <div class="section-heading">
+        <div><div class="eyebrow">Selected projects</div><h2>Websites with their own point of view.</h2></div>
+        <p>A collection of website concepts and development projects demonstrating my design approach, creativity and technical skills.</p>
+      </div>
+      <div class="project-list">
+        <article class="project">
+          <div class="project-number">01</div>
+          <div class="project-info"><div class="project-type">Website template</div><h3>Morrow House</h3><p>A calm botanical storefront concept with thoughtful details, natural colors and a little life in every corner.</p><a class="project-visit" href="https://akshitasingh7547.github.io/Template-3/" target="_blank" rel="noopener noreferrer">View live website <span aria-hidden="true">↗</span></a></div>
+          <a class="project-image" href="https://akshitasingh7547.github.io/Template-3/" target="_blank" rel="noopener noreferrer" aria-label="View Morrow House website"><img loading="lazy" src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=85" alt="Lush green plants in a bright home, from the Morrow House project"></a>
+        </article>
+        <article class="project">
+          <div class="project-number">02</div>
+          <div class="project-info"><div class="project-type">Website template</div><h3>Fieldnote</h3><p>A gentle coaching studio interface, bringing student progress and useful learning tools into focus.</p><a class="project-visit" href="https://akshitasingh7547.github.io/template-2/" target="_blank" rel="noopener noreferrer">View live website <span aria-hidden="true">↗</span></a></div>
+          <a class="project-image" href="https://akshitasingh7547.github.io/template-2/" target="_blank" rel="noopener noreferrer" aria-label="View Fieldnote website"><img loading="lazy" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=85" alt="A bright learning space, representing the Fieldnote coaching studio project"></a>
+        </article>
+        <article class="project">
+          <div class="project-number">03</div>
+          <div class="project-info"><div class="project-type">Website template</div><h3>Forge Athletic Club</h3><p>A bold training club concept with confident typography, purposeful layouts and an energetic edge.</p><a class="project-visit" href="https://akshitasingh7547.github.io/template-1/" target="_blank" rel="noopener noreferrer">View live website <span aria-hidden="true">↗</span></a></div>
+          <a class="project-image" href="https://akshitasingh7547.github.io/template-1/" target="_blank" rel="noopener noreferrer" aria-label="View Forge Athletic Club website"><img loading="lazy" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=85" alt="A bright, modern training space from the Forge Athletic Club project"></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="approach" id="approach">
+      <div class="wrap approach-inner">
+        <div><div class="eyebrow">My approach</div><h2>Every website starts with understanding.</h2></div>
+        <div class="approach-copy"><p>Every website begins with understanding the purpose, audience and requirements. I focus on thoughtful choices that help people find their way and make each screen feel considered.</p>
+          <div class="principles">
+            <div class="principle"><strong>Clear communication</strong><span>Design that communicates clearly.</span></div>
+            <div class="principle"><strong>Easy navigation</strong><span>Layouts that are easy to navigate.</span></div>
+            <div class="principle"><strong>Purposeful function</strong><span>Functionality that serves a purpose.</span></div>
+            <div class="principle"><strong>Responsive details</strong><span>Consistency across different screen sizes.</span></div>
           </div>
         </div>
-        <div class="hero-copy">
-          <div class="eyebrow">Web Designer &amp; Developer</div>
-          <h1>Digital work that <span>feels different.</span></h1>
-          <p>I design and build modern, engaging websites that turn ideas into polished digital experiences.</p>
-          <div class="actions">
-            <a class="btn primary" href="#work">View my work ↗</a>
-            <a class="btn secondary" href="#contact">Let's talk</a>
-          </div>
-        </div>
       </div>
     </section>
 
-    <section id="work">
-      <div class="shell">
-        <div class="section-kicker">Selected work</div>
-        <h2 class="section-title">A few things I've built.</h2>
-        <p class="section-intro">Interactive websites and digital experiences designed with clarity, personality and attention to detail.</p>
-        <div class="work-grid">
-          <a class="project" href="https://akshitasingh7547.github.io/Bloom-and-Brew/" target="_blank" rel="noopener noreferrer">
-            <span class="project-number">01</span>
-            <div><div class="project-type">Web Design · Development</div><h3>Bloom &amp; Brew</h3><p>A warm digital experience for plant and tea enthusiasts, combining useful content with a playful visual identity.</p></div>
-            <span class="project-arrow">↗</span>
-          </a>
-          <a class="project" href="https://akshitasingh7547.github.io/kawaii_for_everyone/" target="_blank" rel="noopener noreferrer">
-            <span class="project-number">02</span>
-            <div><div class="project-type">Creative Web Design</div><h3>Kawaii for Everyone</h3><p>A colorful, expressive web experience built around playful design, animation and personality.</p></div>
-            <span class="project-arrow">↗</span>
-          </a>
-          <article class="project">
-            <span class="project-number">03</span>
-            <div><div class="project-type">Web Application</div><h3>Study Hub</h3><p>A focused productivity space bringing study resources and organization tools into one simple digital experience.</p></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="services">
-      <div class="shell">
-        <div class="section-kicker">What I do</div>
-        <h2 class="section-title">Built around your idea.</h2>
-        <p class="section-intro">From a first concept to a finished website, I focus on making the experience clear, memorable and easy to use.</p>
-        <div class="services">
-          <div class="service"><h3>Websites</h3><p>Modern responsive websites for people, brands and businesses.</p></div>
-          <div class="service"><h3>Web Design</h3><p>Clean visual systems, layouts and interactions with a strong identity.</p></div>
-          <div class="service"><h3>Landing Pages</h3><p>Focused pages designed to communicate an idea quickly and clearly.</p></div>
-          <div class="service"><h3>Redesigns</h3><p>Give an existing website a cleaner, more modern digital presence.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="shell about-grid">
-        <div>
-          <div class="section-kicker">About</div>
-          <h2 class="section-title">Design meets development.</h2>
-          <div class="about-copy">I enjoy turning ideas into <strong>useful, visually engaging digital experiences.</strong> My approach combines thoughtful design with practical frontend development, keeping the final result clean, responsive and easy to use.</div>
-          <div class="tech-line"><strong>Core:</strong> HTML · CSS</div>
-        </div>
-        <div class="about-meta">
-          <div class="meta-card"><div class="meta-label">Focus</div><div class="meta-value">Web Design &amp; Development</div></div>
-          <div class="meta-card"><div class="meta-label">Approach</div><div class="meta-value">Clean · Interactive · User-focused</div></div>
-          <div class="meta-card"><div class="meta-label">Based in</div><div class="meta-value">Mumbai, India</div></div>
-        </div>
+    <section class="wrap services" id="services">
+      <div class="services-top"><div><div class="eyebrow">What I do</div><h2>From first idea to a finished website.</h2></div><p>I create modern, useful digital experiences for businesses, brands and personal projects.</p></div>
+      <div class="service-lines">
+        <article class="service"><span class="service-num">01</span><div><h3>Website Design</h3><p>Modern and clean website layouts, visual consistency and branding, responsive design, and user-friendly interfaces.</p></div></article>
+        <article class="service"><span class="service-num">02</span><div><h3>Business Websites</h3><p>Clear, welcoming websites to help businesses establish a strong online presence.</p></div></article>
+        <article class="service"><span class="service-num">03</span><div><h3>Landing Pages</h3><p>Focused pages that bring a product, service or idea into view.</p></div></article>
+        <article class="service"><span class="service-num">04</span><div><h3>Portfolio Websites</h3><p>Personal spaces to showcase work, skills and creative projects.</p></div></article>
+        <article class="service"><span class="service-num">05</span><div><h3>Custom Website Layouts</h3><p>Layouts shaped around your purpose, audience and requirements.</p></div></article>
+        <article class="service"><span class="service-num">06</span><div><h3>Website Updates</h3><p>Improvements and updates to make an existing website clearer and more useful.</p></div></article>
       </div>
     </section>
 
     <section class="contact" id="contact">
-      <div class="shell">
-        <div class="contact-box">
-          <div class="section-kicker">Start a project</div>
-          <h2>Have an idea? Let's build it.</h2>
-          <p>Tell me what you're imagining and let's turn it into something people can experience.</p>
-          <a class="btn primary" href="mailto:akshitasingh7547@gmail.com">Get in touch ↗</a>
-        </div>
+      <div class="wrap contact-inner">
+        <div><div class="eyebrow">Let’s build something.</div><h2>Have an idea? Let’s bring it to life.</h2><p>Looking for a website for your business, brand or personal project?<br>Let’s discuss your ideas and bring them to life.</p></div>
+        <a class="contact-link" href="mailto:akshitasingh7547@gmail.com">Professional Email Address <span aria-hidden="true">↗</span></a>
       </div>
     </section>
   </main>
-
-  <footer class="shell">
-    <div>© 2026 Akshita Singh</div>
-    <a href="https://github.com/akshitasingh7547" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-  </footer>
+  <footer class="wrap"><span>© 2026 Akshita Singh</span><a href="#home">Back to top ↑</a></footer>
 </body>
 </html>
